@@ -45,7 +45,6 @@ rtUpload (
     buildName: 'petclinic',
     buildNumber: '1'
 )
-}
 
 rtPublishBuildInfo (
     serverId: '1',
@@ -58,6 +57,7 @@ rtPublishBuildInfo (
      buildName: 'petclinic',
     buildNumber: '1'
 )
+
 }
 
  stage('SonarQube Code Analysis')
