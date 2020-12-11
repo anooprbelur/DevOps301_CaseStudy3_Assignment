@@ -27,6 +27,26 @@ node {
  stage('Archive Artifacts') {
     archive 'target/*.war'
  }
+ 
+ 
+  stage('Archive into Artifactory') {
+rtUpload (
+    serverId: '1',
+    spec: '''{
+          "files": [
+            {
+              "pattern": "**/*.war",
+			  "target": "generic-snapshot/"
+              
+            }
+         ]
+    }''',
+ 
+    buildName: 'petclinic',
+    buildNumber: '1'
+)
+}
+ 
 
  stage('Getting Ready For Ansible') {
     sh 'cp -rf target/*.war ../../Ansible/Tomcat/files/'
@@ -45,3 +65,9 @@ node {
  }
  
 }
+
+
+
+
+
+
