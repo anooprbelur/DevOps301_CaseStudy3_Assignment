@@ -62,7 +62,7 @@ rtPublishBuildInfo (
 
  stage('SonarQube Code Analysis')
     {
-        withSonarQubeEnv('SonarQubeServer') {
+        withSonarQubeEnv('SonarQube') {
                 sh 'mvn clean package sonar:sonar'
         }
     }
