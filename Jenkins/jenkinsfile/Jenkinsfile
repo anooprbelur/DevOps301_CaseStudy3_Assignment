@@ -1,4 +1,8 @@
 node {
+
+try {
+ 
+ emailext body: 'test!!', subject: 'Pipeline Job started', to: 'anooprbelur@gmail.com'
  
  stage('Git CheckOut') {
     git branch: 'main', url: 'https://github.com/anooprbelur/DevOps301_CaseStudy3_Assignment.git'
@@ -83,6 +87,10 @@ rtPublishBuildInfo (
  }
 
  }
+ 
+  } catch (err) {
+     emailext body: "${err}", subject: 'Pipeline Job Failed!!', to: 'anooprbelur@gmail.com'
+	 }
  
 }
 
